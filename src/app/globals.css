@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+body {
+  @apply dark:bg-[#212529] bg-[#ededed]
+}
+
+@font-face {
+  font-family: 'SansRegularPro';
+  src: url('/fonts/sans-regular.woff2') format('woff2');
+  
+}
+@font-face {
+  font-family: 'SansSemiBoldPro';
+  src: url('/fonts/sans-semiBold.woff2') format('woff2');
+ 
+}
+@font-face {
+  font-family: 'SansOther';
+  src: url('/fonts/last.woff2') format('woff2');
+ 
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom class to hide scrollbars */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+

@@ -83,7 +83,7 @@ const HomePage = ({just_loggedin}) => {
     return isNaN(date.getTime()) ? null : date;
   };
   
-  const safeDate = getSafeDate(createdAt);
+ 
   
 
 if (loader) return <FullLoaders/>
@@ -150,7 +150,7 @@ if (login_loader) return <FullLoaders/>
             const found_dislikes = dislikes?.filter((dislike)=> (_id == dislike.post && dislike.disliked))
             const is_disliked_by_user = found_dislikes.find((dislike)=> dislike.user == just_loggedin?.id)
          
-          
+            const safeDate = getSafeDate(createdAt);
              if(matched_user) return(
               <div className='dark:bg-[#2C3136] bg-white p-2 rounded-md border dark:border-none' key={_id}>
                 <div className='flex items-center gap-2 text-[12px] lg:text-[14px]'>

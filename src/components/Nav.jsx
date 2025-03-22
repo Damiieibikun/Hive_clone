@@ -86,6 +86,7 @@ const Nav = () => {
       width={120}
       height={120}
       alt="logo"
+      className="w-20 sm:w-32 md:w-40"
     />}
     </Link>
      

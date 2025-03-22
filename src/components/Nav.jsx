@@ -19,10 +19,10 @@ import {HiveButton} from "./HiveButton";
 
 
 const Nav = () => {
-  const [isVisible, setIsVisible] = useState(true); // State to track visibility
-  const [lastScrollY, setLastScrollY] = useState(0); // State to track last scroll position
+  const [isVisible, setIsVisible] = useState(true); 
+  const [lastScrollY, setLastScrollY] = useState(0); 
   const [isOpen, setIsOpen] = useState(false); 
-  // all loaders
+
   const {setLoader} = useContext(AppContext)
 
   const {login, setLogin, setJustLoggedin} = useContext(ApiContext);
@@ -37,23 +37,23 @@ const Nav = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Check scroll direction
+      
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling down
+       
         setIsVisible(false);
       } else {
-        // Scrolling up
+        
         setIsVisible(true);
       }
 
-      setLastScrollY(currentScrollY); // Update last scroll position
+      setLastScrollY(currentScrollY); 
     };
 
-    // Add scroll event listener
+   
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-      // Cleanup on unmount
+      
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
@@ -172,7 +172,7 @@ const Nav = () => {
 
  
     </nav>
-           {/* side nav */}
+           
       <div className="absolute h-full z-[100]">
       <div className={
         "fixed z-[100] inset-0 transform ease-in-out h-full" +
@@ -282,7 +282,7 @@ const Nav = () => {
       </div>
     </div>
 
-    {/* Login modal */}
+  
     
      {login && (
       <LoginModal setLogin={setLogin}/>

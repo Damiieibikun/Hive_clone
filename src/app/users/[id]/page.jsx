@@ -178,7 +178,7 @@ console.log(edit_successful)
             <div className='flex items-center gap-3 relative z-10 pb-6 text-[12px] lg:text-[14px]'>
                {user && <p className='font-sansRegularPro'>@{user.username}</p>}
                 {user && <p className='font-sansRegularPro flex items-center gap-1'> <AiTwotoneCalendar className='text-white'/> Joined {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</p>}
-                {/* {user && <p className='font-sansRegularPro flex items-center gap-1'> <AiTwotoneCalendar className='text-white'/> Joined {new Date(user.updatedAt).toLocaleString()}</p>} */}
+                
             {
               just_loggedin?.id === user?._id && <Link href={'/register'} onClick={()=>{localStorage.setItem('editing-user-hive', user?._id); setLoader(true)}}>
             <FiEdit size={15}/>
@@ -514,7 +514,7 @@ console.log(edit_successful)
         
         {isEditPost&& (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-[#2C3136] dark:text-white p-6 rounded-lg w-[80%] mx-auto overflow-y-auto h-[90vh]">
+            <div className="bg-white dark:bg-[#2C3136] dark:text-white p-6 rounded-lg w-[95%] md:w-[80%] mx-auto overflow-y-auto h-[90vh]">
             
             <div className='flex flex-col gap-1 justify-end items-end font-sansRegularPro'>
             <label htmlFor="postcat">Choose category</label>            
@@ -537,7 +537,7 @@ console.log(edit_successful)
 
               <div className='flex items-center flex-wrap gap-5 mb-4 justify-center md:justify-start'>
               {edit_post.display_images && edit_post.display_images.length > 0 ? 
-              // edit_post.display_images?.map((img, idx)=><div key={idx} className='relative rounded-lg border bg-no-repeat bg-center bg-cover w-32 h-32' style={{ backgroundImage: `url(${img})`}}>
+              
                edit_post.display_images?.map(({url}, idx)=><div key={idx} className='relative rounded-lg border bg-no-repeat bg-center bg-cover w-32 h-32' style={{ backgroundImage: `url(${url})`}}> 
                  <button
                 onClick={()=>{
@@ -711,7 +711,7 @@ console.log(edit_successful)
 
 {isEditComment && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-[#2C3136] dark:text-white p-6 rounded-lg w-[70%] mx-auto">
+            <div className="bg-white dark:bg-[#2C3136] dark:text-white p-6 rounded-lg w-[95%] md:w-[70%] mx-auto">
             {edit_commentPost && <p className='font-sansSemiBoldPro text-xl'>Post: {edit_commentPost.title}</p>}
               <div className="space-y-4">
 

@@ -8,7 +8,7 @@ import { MiniLoader } from './Loaders'
 
 const LoginModal = ({setLogin}) => {
     const {login_inputs, handleLoginInputs, handleLoginSubmit} = useContext(AppContext)
-    const{login_err, ToastContainer, Bounce, login_loader, setLoginLoader, logginin} = useContext(ApiContext)
+    const{login_err, ToastContainer, Bounce,  setLoginLoader, logginin} = useContext(ApiContext)
 
 useEffect(()=>{
   setLoginLoader(false)
@@ -16,13 +16,13 @@ useEffect(()=>{
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
-          {/* Backdrop */}
+          
           <div
             className="fixed inset-0 bg-black bg-opacity-90 z-[90]"
             onClick={() => setLogin(false)}
           ></div>
 
-          {/* Modal content */}
+         
          
           <div
             className="relative bg-white dark:bg-[#2C3136] dark:text-white rounded-tr-3xl rounded-bl-3xl shadow-[7px_7px_0_rgba(220,38,38,1)] max-w-[600px] w-full max-h-[90vh] overflow-y-auto pt-12 pb-8 px-[70px] z-[100]"

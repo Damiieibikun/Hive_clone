@@ -57,13 +57,13 @@ const page =  ({ params }) => {
   const [likeClicked, setLikeClicked] = useState(false);
   const [dislikeClicked, setDislikeClicked] = useState(false);
 
-  const [clickedItems, setClickedItems] = useState({}); // Store clicked animation states per post ID
+  const [clickedItems, setClickedItems] = useState({}); 
 
   const handleClick = (id, type) => {
     setClickedItems((prev) => ({ ...prev, [id]: type }));
 
     setTimeout(() => {
-      setClickedItems((prev) => ({ ...prev, [id]: null })); // Reset animation after 200ms
+      setClickedItems((prev) => ({ ...prev, [id]: null })); 
     }, 200);
   };
 
@@ -110,7 +110,7 @@ const page =  ({ params }) => {
               <span className='font-bold text-[20px]'> .</span>
     
               {post.time_created && <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</span>}
-              {/* {post.time_created && <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> {formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</span>} */}
+             
             </div>
           </div>
           <div className='leading-loose font-serif text-[15px] lg:text-[19px] border border-b-0 border-l-0 border-r-0 py-4 mt-4'>
@@ -136,7 +136,7 @@ const page =  ({ params }) => {
             <LuClock3 className='text-gray-500 dark:text-gray-400'/>
             
            {post.time_created && <p className='text-gray-500 dark:text-gray-400'>{safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</p>}
-           {/* {post.time_created && <p className='text-gray-500 dark:text-gray-400'>{formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</p>} */}
+           
             <span className='text-gray-500 dark:text-gray-400'>in</span>
             <Link href='' className='capitalize text-[#E31337]'>{post.category}</Link>
               <span className='text-gray-500 dark:text-gray-400'>by</span>

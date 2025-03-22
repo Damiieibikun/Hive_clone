@@ -13,7 +13,7 @@ const AppProvider = ({ children }) => {
 
     const editing_user = typeof window !== "undefined" ? localStorage.getItem("editing-user-hive") : null;
 
-  // all loaders
+ 
 const [loader, setLoader] = useState(false)
 
 const[field_errors, setFieldError] = useState('')
@@ -112,19 +112,7 @@ const handleOTP =(e)=>{
             setPasswordErr({
               password_err: '',
               password_length: ''
-            })
-
-            // setRegisterInputs({
-            //   firstname: '',
-            //   lastname: '',
-            //   username: '',
-            //   email: '',
-            //   password: '',
-            //   confirm_password: '',
-            //   descp: '',
-            //   avatar: '',
-            //   banner: ''
-            // })
+            })           
                             
            }
         }       
@@ -232,10 +220,10 @@ const handlePostInputs = (e)=>{
 
 
 const handleImagesInput = (e) => {
-  const files = Array.from(e.target.files); // Convert FileList to an array
+  const files = Array.from(e.target.files); 
   setPostInputs((prev) => ({
       ...prev,
-      images: [...prev.images, ...files] // Append new files
+      images: [...prev.images, ...files] 
   }));
 };
 
@@ -300,7 +288,7 @@ const handlePostedit = (id, JSONdata)=>{
     edit_data.append('category', JSONdata.category);
     edit_data.append('title', JSONdata.title);
     edit_data.append('content', JSONdata.content);
-    // Append each image file individually
+   
     JSONdata.images?.forEach((image) => {
       edit_data.append('images', image);
   });
@@ -402,5 +390,5 @@ const handlePostedit = (id, JSONdata)=>{
   );
 };
 
-export { AppContext }; // Export context for use in other components
+export { AppContext }; 
 export default AppProvider;

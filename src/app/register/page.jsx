@@ -75,10 +75,10 @@ const page = () => {
     <div className='mb-5'>
         <div className="fixed top-0 bottom-0 right-0 left-0 sm:left-[unset] h-[100vw] sm:rotate-90 pointer-events-none select-none -z-10">
         <div className="relative w-screen h-[208px] overflow-hidden">
-            <div className="flex flex-1 flex-col whitespace-nowrap motion-safe:animate-marquee">
+            <div className="hidden md:flex flex-1 flex-col whitespace-nowrap motion-safe:animate-marquee">
                 <div className="text-[144px] font-black font-display leading-[0.775] text-gray-200">INLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEO</div>
             </div>
-                <div className="flex flex-1 flex-col whitespace-nowrap motion-safe:animate-marquee-reverse">
+                <div className="hidden md:flex flex-1 flex-col whitespace-nowrap motion-safe:animate-marquee-reverse">
                     <div className="text-[144px] font-black font-display leading-[0.78] text-gray-200 -translate-x-[360px]">INLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEOINLEO</div>
                 </div>
         </div>
@@ -184,7 +184,7 @@ const page = () => {
 {showOtpField ? <div className="mb-5">
   <div className='flex items-end gap-4'>
   <label htmlFor="otp" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Enter OTP</label>
-  <span className='text-xs mb-2 text-gray-700'>{formatTime(timeLeft)}</span>
+  <span className='dark:text-white text-xs mb-2 text-gray-700'>{formatTime(timeLeft)}</span>
   </div>
    
     <input onChange={handleOTP} name='otp' type="text" 
@@ -205,7 +205,7 @@ const page = () => {
     <p className='font-sans font-[600] text-[15px]'>{editing_user? 'Edit hive details':'Submit'}</p>    
 </button>}
 
-{otp_loader && <p className='my-3 text-sm text-gray-600 font-sansRegularPro'>{otp_loader}</p>}
+{otp_loader && <p className='dark:text-white my-3 text-sm text-gray-600 font-sansRegularPro'>{otp_loader}</p>}
 <div className='ml-[20%] h-[70px]'>
 {reg_loader && <MiniLoader/>}
 </div>

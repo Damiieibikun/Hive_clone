@@ -78,6 +78,13 @@ const HomePage = ({just_loggedin}) => {
     setAllPosts(copy_post.reverse())
   }
 
+  const getSafeDate = (dateString) => {
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? null : date;
+  };
+  
+  const safeDate = getSafeDate(createdAt);
+  
 
 if (loader) return <FullLoaders/>
 if (login_loader) return <FullLoaders/>
@@ -156,7 +163,8 @@ if (login_loader) return <FullLoaders/>
                 <Link href={`/users/${matched_user?._id}`} onClick={()=> setLoader(true)} className='font-sansSemiBoldPro text-[#212529] hover:text-[#E31337] transition-all duration-300 dark:text-white'>{matched_user?.username}</Link>
                 <div className='font-sansRegularPro text-gray-500 dark:text-gray-400'> 
                 <Link href='' className='hover:text-[#E31337] transition-all duration-300 cursor-pointer'>in {matched_category?.name}</Link>
-                <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> . {createdAt && formatDistanceToNow(new Date(createdAt), { addSuffix: true })}
+                <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> . {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}
+
                 </span>
                 {/* <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> . {formatDistanceToNow(new Date(createdAt).toLocaleString(), { addSuffix: true })}</span> */}
                 </div>          

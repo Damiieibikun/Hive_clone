@@ -31,7 +31,7 @@ const HomePage = ({just_loggedin}) => {
      dislikePost,
      fetchDislikes,
      dislikes, login_loader, setLoginLoader} = useContext(ApiContext)
-     const {loader, setLoader, setRegisterInputs} = useContext(AppContext)
+     const {loader, setLoader, setRegisterInputs, getSafeDate} = useContext(AppContext)
   
 
     const [show_overView, setShowOverview] = useState(true)
@@ -78,10 +78,10 @@ const HomePage = ({just_loggedin}) => {
     setAllPosts(copy_post.reverse())
   }
 
-  const getSafeDate = (dateString) => {
-    const date = new Date(dateString);
-    return isNaN(date.getTime()) ? null : date;
-  };
+  // const getSafeDate = (dateString) => {
+  //   const date = new Date(dateString);
+  //   return isNaN(date.getTime()) ? null : date;
+  // };
   
  
   

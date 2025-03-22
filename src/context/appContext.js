@@ -349,6 +349,11 @@ const handlePostedit = (id, JSONdata)=>{
     
   }
 
+  const getSafeDate = (dateString) => {
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? null : date;
+  };
+  
 
   const values = {
     
@@ -386,6 +391,8 @@ const handlePostedit = (id, JSONdata)=>{
 
     change_password_inputs, changePasswordInputs,
     handlePasswordSubmit,   
+
+    getSafeDate
     };
 
   return (

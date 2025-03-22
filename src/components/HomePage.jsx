@@ -77,13 +77,6 @@ const HomePage = ({just_loggedin}) => {
     const copy_post = [...all_posts]
     setAllPosts(copy_post.reverse())
   }
-
-  // const getSafeDate = (dateString) => {
-  //   const date = new Date(dateString);
-  //   return isNaN(date.getTime()) ? null : date;
-  // };
-  
- 
   
 
 if (loader) return <FullLoaders/>
@@ -166,7 +159,7 @@ if (login_loader) return <FullLoaders/>
                 <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> . {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}
 
                 </span>
-                {/* <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> . {formatDistanceToNow(new Date(createdAt).toLocaleString(), { addSuffix: true })}</span> */}
+              
                 </div>          
                 </div>
 
@@ -202,7 +195,7 @@ if (login_loader) return <FullLoaders/>
             }}
           />
 
-          {/* Dislike Button */}
+       
           <TfiArrowCircleDown
             size={17}
             className={`hover:bg-[#555555] hover:text-white cursor-pointer rounded-full transition-all duration-200 ease-in-out

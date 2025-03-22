@@ -28,7 +28,7 @@ const page =  ({ params }) => {
     dislikePost,
     fetchDislikes,
     dislikes} = useContext(ApiContext); 
-  const {reply_inputs, handleReplyInput,  handleReplySubmit, setReplyInput} = useContext(AppContext);
+  const {reply_inputs, handleReplyInput,  handleReplySubmit, setReplyInput, getSafeDate} = useContext(AppContext);
   const {loader, setLoader} = useContext(AppContext)
   const resolvedParams = React.use(params);
   const { id } =  resolvedParams
@@ -38,10 +38,7 @@ const page =  ({ params }) => {
   const [loading, setLoading] = useState(true);
   const [post_loader, setPostLoader] = useState(true);
   const [just_loggedin, setJustLoggedin] = useState(null)
-  // const just_loggedin = typeof window !== "undefined" ? JSON.parse(localStorage.getItem('loggedin-user')) : null
-
-  // get single post
-  
+    
   const [post, setPost] = useState({});
 
   const fetchSinglePost = async () => {
@@ -89,6 +86,7 @@ const page =  ({ params }) => {
   const is_liked_by_user = found_likes.find((like)=> like.user == just_loggedin?.id)
   const found_dislikes = dislikes?.filter((dislike)=> (id == dislike.post && dislike.disliked))
   const is_disliked_by_user = found_dislikes.find((dislike)=> dislike.user == just_loggedin?.id)
+  const safeDate = getSafeDate(post?.time_created);
 
   if (loader) return<FullLoaders/>
  if (loading) return <FullLoaders/>
@@ -111,7 +109,8 @@ const page =  ({ params }) => {
               <Link href='' className='hover:text-[#E31337] transition-all duration-300 cursor-pointer'>in {post.category}</Link>
               <span className='font-bold text-[20px]'> .</span>
     
-              {post.time_created && <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> {formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</span>}
+              {post.time_created && <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</span>}
+              {/* {post.time_created && <span className='font-sansRegularPro hover:text-[#E31337] transition-all duration-300 hover:cursor-pointer'> {formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</span>} */}
             </div>
           </div>
           <div className='leading-loose font-serif text-[15px] lg:text-[19px] border border-b-0 border-l-0 border-r-0 py-4 mt-4'>
@@ -136,7 +135,8 @@ const page =  ({ params }) => {
         <div className='mt-3 flex flex-wrap items-center gap-1 font-sansRegularPro text-[12px] lg:text-[15px]'>
             <LuClock3 className='text-gray-500 dark:text-gray-400'/>
             
-           {post.time_created && <p className='text-gray-500 dark:text-gray-400'>{formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</p>}
+           {post.time_created && <p className='text-gray-500 dark:text-gray-400'>{safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</p>}
+           {/* {post.time_created && <p className='text-gray-500 dark:text-gray-400'>{formatDistanceToNow(new Date(post?.time_created).toLocaleString(), { addSuffix: true })}</p>} */}
             <span className='text-gray-500 dark:text-gray-400'>in</span>
             <Link href='' className='capitalize text-[#E31337]'>{post.category}</Link>
               <span className='text-gray-500 dark:text-gray-400'>by</span>

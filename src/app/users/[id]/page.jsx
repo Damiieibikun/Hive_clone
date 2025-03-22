@@ -24,7 +24,7 @@ const page = ({params}) => {
     const [just_loggedin, setJustLoggedinUser] = useState(null);
      const [loading, setLoading] = useState(true);
   
-  const {loader, setLoader, handlePostedit} = useContext(AppContext);
+  const {loader, setLoader, handlePostedit, getSafeDate} = useContext(AppContext);
 
   const{BASEURL, fetchAllPosts, 
     fetchAllComments, all_posts, all_comments, deleteComment, all_users,
@@ -118,6 +118,7 @@ const post_replies = all_comments?.filter((cmt)=>{
   return posts?.some((post)=> post._id == cmt.post)
 })
 
+const safeDate = getSafeDate(user?.createdAt);
 
 const removeTag = (index)=>{
   setEditPost((prev)=>({
@@ -176,7 +177,8 @@ console.log(edit_successful)
             </div>
             <div className='flex items-center gap-3 relative z-10 pb-6 text-[12px] lg:text-[14px]'>
                {user && <p className='font-sansRegularPro'>@{user.username}</p>}
-                {user && <p className='font-sansRegularPro flex items-center gap-1'> <AiTwotoneCalendar className='text-white'/> Joined {new Date(user.updatedAt).toLocaleString()}</p>}
+                {user && <p className='font-sansRegularPro flex items-center gap-1'> <AiTwotoneCalendar className='text-white'/> Joined {safeDate ? formatDistanceToNow(safeDate, { addSuffix: true }) : "No Date Available"}</p>}
+                {/* {user && <p className='font-sansRegularPro flex items-center gap-1'> <AiTwotoneCalendar className='text-white'/> Joined {new Date(user.updatedAt).toLocaleString()}</p>} */}
             {
               just_loggedin?.id === user?._id && <Link href={'/register'} onClick={()=>{localStorage.setItem('editing-user-hive', user?._id); setLoader(true)}}>
             <FiEdit size={15}/>

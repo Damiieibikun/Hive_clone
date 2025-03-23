@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hive Blog Clone (Next.js)
 
-## Getting Started
+## Overview
+This project is a full-stack blogging application inspired by Hive Blog, built using Next.js. It integrates with a live API to allow users to:
+- Register and verify accounts using OTP
+- Login and manage user sessions
+- Upload images, Create, edit, and delete blog posts
+- Comment on posts and edit/delete comments
+- Like and dislike posts
+- Change user passwords and edit profiles
 
-First, run the development server:
+## Features
+- **User Authentication:** Register, verify OTP, login, and edit user profiles.
+- **Post Management:** Create, edit, and delete blog posts with images and tags.
+- **Comment System:** Add, edit, and delete comments on posts.
+- **Like & Dislike System:** Users can like or dislike posts.
+- **Category Management:** Fetch all categories and filter posts by category.
+- **Secure API Calls:** Uses Axios for API interactions.
+- **Responsive Design:** Fully optimized for desktop and mobile devices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
+- **Frontend:** Next.js, React Context API, Tailwind CSS
+- **Backend:** Live API hosted on render and data stored on mongoDB Atlas
+- **Package Manager:** npm/yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Usage
+### Registering a User
+1. Fill out the registration form with a valid email address.
+2. Submit the form to receive an OTP.
+3. Enter the OTP to complete registration.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Logging In
+1. Enter username and password.
+2. Click "Login" to authenticate.
 
-## Learn More
+### Creating a Post
+1. Fill out the post creation form.
+2. Upload images (optional).
+3. Add tags to the post.
+4. Submit the post.
 
-To learn more about Next.js, take a look at the following resources:
+### Editing a Post
+1. Navigate to user's profile and click on edit icon of an existing post.
+2. Modify the content.
+3. Save changes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Commenting on a Post
+1. Open a post and click on reply button.
+2. Add a comment and post.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Liking/Disliking a Post
+1. Click the like or dislike button to interact with a post.
 
-## Deploy on Vercel
+### Changing Password
+1. On navigation bar, click on hamburger icon and select change user password.
+2. Enter the old and new password.
+3. Confirm the new password and submit.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

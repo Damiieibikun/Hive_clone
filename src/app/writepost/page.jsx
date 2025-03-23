@@ -31,7 +31,7 @@ const {loader, setLoader} = useContext(AppContext)
   return (
     <>
     <Nav/>
-    <div className="mt-[80px] min-h-screen dark:border-none bg-white dark:bg-[#2C3136] dark:text-white min-w-[500px] p-10 rounded-lg border shadow-md mb-10 mx-auto transition-all">   
+    <div className="mt-[80px] min-h-screen max-w-[700px] dark:border-none bg-white dark:bg-[#2C3136] dark:text-white min-w-[450px] p-10 rounded-lg border shadow-md mb-10 mx-auto transition-all">   
   <form action="" onSubmit={handlePostSubmit} className="space-y-6">
     <p className='text-red-600 font-sansSemiBoldPro text-xs'>{field_errors}</p>
     

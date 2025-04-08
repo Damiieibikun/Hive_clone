@@ -121,7 +121,7 @@ if (login_loader) return <FullLoaders/>
 
 
         <select onChange={arrangeNew} name="" id="" className='lg:w-[35%] px-3 py-2 font-sansRegularPro border rounded-sm text-[#212529] bg-white text-[15px] lg:text-[18px]'>
-          <option value="">Sort</option>
+          <option value="oldest">Default</option>
           <option value="oldest">Oldest</option>
           <option value="latest">Latest</option>
         </select>
